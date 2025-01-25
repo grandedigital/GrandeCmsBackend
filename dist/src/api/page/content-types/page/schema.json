@@ -1,0 +1,100 @@
+{
+    "kind": "collectionType",
+    "collectionName": "pages",
+    "info": {
+        "singularName": "page",
+        "pluralName": "pages",
+        "displayName": "Page",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "Title": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250,
+            "required": true
+        },
+        "DescriptionShort": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "text",
+            "maxLength": 500
+        },
+        "DescriptionLong": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "richtext"
+        },
+        "Image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            }
+        },
+        "menu": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::menu.menu",
+            "inversedBy": "pages"
+        },
+        "Line": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "integer",
+            "default": 0
+        },
+        "image_galleries": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::image-gallery.image-gallery",
+            "mappedBy": "page"
+        },
+        "video_galleries": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::video-gallery.video-gallery",
+            "mappedBy": "page"
+        },
+        "feature_lists": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::feature-list.feature-list",
+            "mappedBy": "page"
+        },
+        "file_galleries": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::file-gallery.file-gallery",
+            "mappedBy": "page"
+        }
+    }
+}

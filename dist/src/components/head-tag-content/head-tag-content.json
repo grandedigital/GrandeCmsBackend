@@ -1,0 +1,30 @@
+{
+    "collectionName": "components_head_tag_content_head_tag_contents",
+    "info": {
+        "displayName": "HeadTagContent"
+    },
+    "options": {},
+    "attributes": {
+        "HtmlTag": {
+            "type": "enumeration",
+            "enum": [
+                "Link",
+                "Meta",
+                "Base"
+            ],
+            "required": true
+        },
+        "Rel": {
+            "type": "string"
+        },
+        "Name": {
+            "type": "string"
+        },
+        "Content": {
+            "type": "string"
+        },
+        "Href": {
+            "type": "string"
+        }
+    }
+}

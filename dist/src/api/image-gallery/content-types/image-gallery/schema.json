@@ -1,0 +1,81 @@
+{
+    "kind": "collectionType",
+    "collectionName": "image_galleries",
+    "info": {
+        "singularName": "image-gallery",
+        "pluralName": "image-galleries",
+        "displayName": "ImageGallery"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "Title": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250
+        },
+        "Image": {
+            "allowedTypes": [
+                "images",
+                "files"
+            ],
+            "type": "media",
+            "multiple": false,
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "AltTag": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250
+        },
+        "TitleTag": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250
+        },
+        "Line": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "integer",
+            "default": 0,
+            "required": false
+        },
+        "page": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::page.page",
+            "inversedBy": "image_galleries"
+        },
+        "menu": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::menu.menu",
+            "inversedBy": "image_galleries"
+        }
+    }
+}

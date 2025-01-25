@@ -1,0 +1,178 @@
+{
+    "kind": "collectionType",
+    "collectionName": "menus",
+    "info": {
+        "singularName": "menu",
+        "pluralName": "menus",
+        "displayName": "Menu",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "Title": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250,
+            "required": true
+        },
+        "DescriptionShort": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "text",
+            "maxLength": 500
+        },
+        "DescriptionLong": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "blocks"
+        },
+        "TopMenuStatus": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "boolean",
+            "default": false
+        },
+        "BottomMenuStatus": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "boolean",
+            "default": false
+        },
+        "LeftMenuStatus": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "boolean",
+            "default": false
+        },
+        "Slug": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "uid",
+            "targetField": "Title",
+            "required": true
+        },
+        "Image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ],
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "PageContentType": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "enumeration",
+            "enum": [
+                "Anasayfa",
+                "Blog",
+                "Hizmet",
+                "Ürün",
+                "Proje",
+                "Referans",
+                "Hakkımızda",
+                "Sabitİçerik"
+            ],
+            "required": true
+        },
+        "menus": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::menu.menu",
+            "mappedBy": "menu"
+        },
+        "menu": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::menu.menu",
+            "inversedBy": "menus"
+        },
+        "pages": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::page.page",
+            "mappedBy": "menu"
+        },
+        "image_galleries": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::image-gallery.image-gallery",
+            "mappedBy": "menu"
+        },
+        "video_galleries": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::video-gallery.video-gallery",
+            "mappedBy": "menu"
+        },
+        "feature_lists": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::feature-list.feature-list",
+            "mappedBy": "menu"
+        },
+        "file_galleries": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::file-gallery.file-gallery",
+            "mappedBy": "menu"
+        },
+        "Line": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "integer",
+            "default": 0
+        },
+        "Seo": {
+            "type": "component",
+            "repeatable": false,
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "component": "seo.seo"
+        }
+    }
+}

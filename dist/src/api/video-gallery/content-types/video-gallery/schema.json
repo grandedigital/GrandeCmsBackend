@@ -1,0 +1,89 @@
+{
+    "kind": "collectionType",
+    "collectionName": "video_galleries",
+    "info": {
+        "singularName": "video-gallery",
+        "pluralName": "video-galleries",
+        "displayName": "VideoGallery"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "Title": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250
+        },
+        "Image": {
+            "allowedTypes": [
+                "images",
+                "files"
+            ],
+            "type": "media",
+            "multiple": false,
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "TitleTag": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250
+        },
+        "AltTag": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "string",
+            "maxLength": 250
+        },
+        "VideoUrl": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "text",
+            "required": true
+        },
+        "Line": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "integer",
+            "default": 0
+        },
+        "page": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::page.page",
+            "inversedBy": "video_galleries"
+        },
+        "menu": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::menu.menu",
+            "inversedBy": "video_galleries"
+        }
+    }
+}
